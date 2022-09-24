@@ -9,9 +9,9 @@ function App() {
 
   return (
     <QueryClientProvider client={queryClient}>
-      <div className="App">
-        <PokemonList></PokemonList>
-      </div>
+      <main className="main">
+        <PokemonList />
+      </main>
       <ReactQueryDevtools />
     </QueryClientProvider>
   )

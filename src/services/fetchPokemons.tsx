@@ -1,10 +1,12 @@
+import { PokemonInfo } from "../interfaces/types";
+
 const POKEAPI_URL = "https://pokeapi.co/api/v2/pokemon/?limit=10"
 
 const fetchPokemons = async () => {
-  let listOfPokemons = []
+  let listOfPokemons: Array<PokemonInfo> = []
   const result = await fetch(`${POKEAPI_URL}`);
   const basicPokemonData = await result.json();
-
+  console.log('basic pok', basicPokemonData);
   for (let pokemon of basicPokemonData.results) {
     const fetchPokemonDetails = await fetch(pokemon.url);
     const pokemonDetails = await fetchPokemonDetails.json();

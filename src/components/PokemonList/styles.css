@@ -1,0 +1,15 @@
+.pokemon-list {
+  grid-column-start: 2;
+}
+
+.ul {
+  display: flex;
+  flex-direction: column;
+  gap: 1vh;
+}
+
+.li {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
