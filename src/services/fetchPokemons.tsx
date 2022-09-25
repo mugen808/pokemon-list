@@ -1,13 +1,11 @@
-import { PokemonInfo } from "../interfaces/types";
+import { PokemonGenericInfo, PokemonInfo, PokemonResult } from "../interfaces/types";
 
-const POKEAPI_URL = "https://pokeapi.co/api/v2/pokemon/?limit=10"
+const POKEAPI_BASIC_LIST_URL = "https://pokeapi.co/api/v2/pokemon/?limit=10&offset=";
+const POKEAPI_WITHOUT_PARAMETERS = "https://pokeapi.co/api/v2";
 
-const fetchPokemons = async () => {
-  let listOfPokemons: Array<PokemonInfo> = []
-  const result = await fetch(`${POKEAPI_URL}`);
-  const basicPokemonData = await result.json();
-  console.log('basic pok', basicPokemonData);
-  for (let pokemon of basicPokemonData.results) {
+const getPokemonsDetails = async (basicPokemonData: Array<PokemonGenericInfo>) => {
+  let listOfPokemons: PokemonInfo[] = []
+  for (let pokemon of basicPokemonData) {
     const fetchPokemonDetails = await fetch(pokemon.url);
     const pokemonDetails = await fetchPokemonDetails.json();
     listOfPokemons.push({
@@ -17,8 +15,23 @@ const fetchPokemons = async () => {
       type: pokemonDetails.types[0].type.name
     })
   }
-  
+
   return listOfPokemons;
 }
 
-export { fetchPokemons };
+const getIndividualPokemon = async (urlParameters: string) => {
+  const response = await fetch(`${POKEAPI_WITHOUT_PARAMETERS}${urlParameters}`)
+  const data = await response.json()
+  return data;
+}
+
+const fetchPokemons = async (page: number): Promise<PokemonResult> => {
+  const offset = page === 1 ? 0 : page * 10;
+  const response = await fetch(`${POKEAPI_BASIC_LIST_URL}${offset}`);
+  const { next, previous, results } = await response.json();
+  const detailedPokemonData: PokemonInfo[] = await getPokemonsDetails(results)
+  let detailedPokemonList: PokemonResult = { next, previous, results: detailedPokemonData }
+  return detailedPokemonList;
+}
+
+export { fetchPokemons, getIndividualPokemon };

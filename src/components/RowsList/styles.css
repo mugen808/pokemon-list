@@ -3,7 +3,7 @@
   align-items: center;
   justify-content: flex-start;
   gap: 4vw;
-  width: 30vw;
+  width: 50vw;
   border: 1px solid rgba(131, 131, 131, 0.363);
   border-radius: 10px;
   background-color: white;
@@ -30,6 +30,17 @@
   text-transform: capitalize;
   font-size: 1.10rem;
   color: rgb(48, 48, 48);
-  width: 40%;
   text-align: center;
+}
+
+.list-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1vh;
+}
+
+.list-item {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }

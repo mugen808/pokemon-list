@@ -1,15 +1,24 @@
-.pokemon-list {
-  grid-column-start: 2;
+.main-section {
+  grid-area: 2 / 2 / 5 / 5;
 }
 
-.ul {
-  display: flex;
-  flex-direction: column;
-  gap: 1vh;
+.display-type-buttons {
+  background-color: white;
+  border: 1px solid rgb(119, 119, 119);
+  border-radius: 5px;
+  cursor: pointer;
+  height: 30px;
+  width: 30px;
+  margin: 2px;
+  transition: 0.3s ease;
 }
 
-.li {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+.display-type-buttons:hover {
+  transition: 0.3s ease;
+  height: 35px;
+  width: 35px;
+}
+
+.display-type-buttons img {
+  width: 100%;
 }
