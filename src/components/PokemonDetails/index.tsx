@@ -11,16 +11,18 @@ const PokemonDetails: React.FC = () => {
   if (status === "error") return <div>Error</div>
 
   return (
-    <div className="pokemon-details-wrapper">
-      <div className="image-wrapper">
-        <img src={data.sprites.other["official-artwork"].front_default}></img>
+    <div className="pokemon-details-container">
+      <div className="pokemon-details-wrapper">
+        <div className="image-wrapper">
+          <img src={data.sprites.other["official-artwork"].front_default}></img>
+        </div>
+        <div className="text-details">
+          <span>#{data.id}</span>
+          <h3>{data.name}</h3>
+          <p>{data.types[0].type.name}</p>
+        </div>
       </div>
-      <div className="text-details">
-        <span>#{data.id}</span>
-        <h3>{data.name}</h3>
-        <p>{data.types[0].type.name}</p>
-      </div>
-      <Link to="/">Back</Link>
+      <Link className="back-button" to="/">Back</Link>
     </div>
   )
 }

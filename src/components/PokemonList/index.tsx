@@ -5,16 +5,19 @@ import PokemonGrid from "../PokemonGrid";
 import { PokemonResult } from "../../interfaces/types";
 import './styles.css'
 import { useState } from "react";
+import { usePageContext } from "../../context/PageContext";
+import PaginationButtons from "../PaginationButtons";
 
 const PokemonList: React.FC = () => {
+  const { page, setPage }= usePageContext();
+  console.log(page)
   const handlePreviousPage = () => {
-    setPage(previous => previous -1)
+    setPage((previous: number) => previous -1)
   }
   const handleNextPage = () => {
-    setPage(previous => previous +1)
+    setPage((previous: number) => previous +1)
   }
 
-  const [page, setPage] = useState<number>((1));
   const [displayGrid, setDisplayGrid] = useState<boolean>(false);
   const { data, status }: UseQueryResult<PokemonResult, string> = useQuery(['pokemonList', page], () => fetchPokemons(page))
   
@@ -36,8 +39,7 @@ const PokemonList: React.FC = () => {
         : <RowsList results={pokemonList?.results} next={pokemonList?.next} previous={pokemonList?.previous}/>
       }
       
-      <button onClick={handlePreviousPage} disabled={page === 1}>Previous</button>
-      <button onClick={handleNextPage}>Next</button>
+      <PaginationButtons></PaginationButtons>
     </section>
   )
 }
