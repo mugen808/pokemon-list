@@ -9,9 +9,9 @@ const PageContext = createContext<any>({})
 
 export const PageContextProvider: React.FC<PropsWithChildren> = ({ children }) => {
   const [page, setPage] = useState<number>(1)
-
+  const [gridView, setGridView] = useState<boolean>(false)
   return (
-    <PageContext.Provider value={{ page, setPage }}>
+    <PageContext.Provider value={{ page, setPage, gridView, setGridView }}>
       { children }
     </PageContext.Provider>
   )

@@ -14,8 +14,7 @@
 }
 
 .row-wrapper:hover {
-  transition: 0.2s ease;
-  border: 1px solid rgba(131, 131, 131, 0.363);
+  background: rgb(240, 239, 239);
 }
 
 .avatar {
