@@ -2,7 +2,7 @@ import './styles.css'
 
 const PokemonType: React.FC<{ type: string }> = ({ type }) => {
   return (
-    <p className={type}>{ type }</p>
+    <p className={`type ${type}`}>{ type }</p>
   )
 }
 

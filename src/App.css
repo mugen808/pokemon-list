@@ -1,6 +1,7 @@
 .main {
-  display: grid;
-  grid-template-columns: repeat(5, 20%);
-  grid-template-rows: repeat(5, 20%);
-  height: 100vh;
+  min-height: 100vh;
+  background: url('https://i.pinimg.com/originals/a1/86/a8/a186a8aff83506c70b0b307e3fb062c8.png');
+  object-fit: cover;
+  overflow-x: hidden;
+  background-repeat: round;
 }

@@ -5,7 +5,7 @@ interface UserContext {
   setPage: React.Dispatch<React.SetStateAction<number>>
 }
 
-const PageContext = createContext({})
+const PageContext = createContext<any>({})
 
 export const PageContextProvider: React.FC<PropsWithChildren> = ({ children }) => {
   const [page, setPage] = useState<number>(1)

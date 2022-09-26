@@ -1,4 +1,4 @@
-import { PokemonGenericInfo, PokemonInfo, PokemonResult } from "../interfaces/types";
+import { PokemonGenericInfo, PokemonInfo, PokemonResult } from "../interfaces";
 
 const POKEAPI_BASIC_LIST_URL = "https://pokeapi.co/api/v2/pokemon/?limit=10&offset=";
 const POKEAPI_WITHOUT_PARAMETERS = "https://pokeapi.co/api/v2";

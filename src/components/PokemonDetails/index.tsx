@@ -1,13 +1,14 @@
-import { useLocation, Link, useParams } from "react-router-dom"
-import { useQueryClient, useQuery, UseQueryResult } from "react-query";
+import { useLocation, Link } from "react-router-dom"
+import { useQuery } from "react-query";
 import './styles.css'
 import { getIndividualPokemon } from "../../services/fetchPokemons";
-
+import PokemonType from "../PokemonType";
+import LoadingScreen from "../Loading";
 
 const PokemonDetails: React.FC = () => {
   const location = useLocation();
-  const { data, status, error } = useQuery('pokemonDetails', () => getIndividualPokemon(location.pathname))
-  if (status === "loading") return <div>Loading...</div>
+  const { data, status } = useQuery('pokemonDetails', () => getIndividualPokemon(location.pathname))
+  if (status === "loading") return <LoadingScreen />
   if (status === "error") return <div>Error</div>
 
   return (
@@ -19,7 +20,7 @@ const PokemonDetails: React.FC = () => {
         <div className="text-details">
           <span>#{data.id}</span>
           <h3>{data.name}</h3>
-          <p>{data.types[0].type.name}</p>
+          <PokemonType type={data.types[0].type.name} />
         </div>
       </div>
       <Link className="back-button" to="/">Back</Link>

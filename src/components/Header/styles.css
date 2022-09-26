@@ -1,0 +1,23 @@
+.page-title {
+  color: white;
+  font-size: 1.3rem;
+}
+
+.logo {
+  width: 3.5vw;
+}
+
+.header-container {
+  width: 100vw;
+  z-index: 100;
+  display: flex;
+}
+
+.header-wrapper {
+  display: flex;
+  gap: 2vh;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+}

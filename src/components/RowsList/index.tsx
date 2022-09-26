@@ -1,6 +1,6 @@
 import PokemonType from '../PokemonType';
 import './styles.css'
-import { PokemonResult } from '../../interfaces/types';
+import { PokemonResult } from '../../interfaces';
 import { Link } from 'react-router-dom';
 
 const RowsList: React.FC<PokemonResult> = ({ results }) => {
@@ -14,7 +14,10 @@ const RowsList: React.FC<PokemonResult> = ({ results }) => {
                 <div className="avatar-wrapper">
                   <img src={pokemon.imageUrl} className="avatar"></img>
                 </div>
-                <p className="pokemon-name">{pokemon.name}</p>
+                <div className="list-name-container">
+                  <span className="pokemon-id">#{pokemon.id}</span>
+                  <p className="pokemon-name">{pokemon.name}</p>
+                </div>
                 <PokemonType type={pokemon.type} />
               </Link>
             </li>

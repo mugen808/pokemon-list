@@ -1,8 +1,10 @@
 .pokemon-details-container {
-  grid-area: 2 / 2 / 5 / 5;
   display: flex;
   flex-direction: column;
   gap: 1vh;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
 }
 .pokemon-details-wrapper {
   display: flex;
@@ -11,8 +13,8 @@
   justify-self: center;
   border: 1px solid rgb(199, 199, 199);
   gap: 5vh;
-  min-width: 40vw;
-  min-height: 70vh;
+  min-width: 35vw;
+  min-height: 50vh;
   padding: 2rem;
   background-color: white;
 }
@@ -22,8 +24,8 @@
 }
 
 .image-wrapper img {
-  width: 35vw;
-  padding: 20px
+  padding: 20px;
+  width: 22vw;
 }
 
 .text-details {
@@ -42,4 +44,15 @@
   padding: 0.5em;
   border-radius: 10px;
   align-self: center;
+}
+
+.back-button:hover {
+  background-color: tomato;
+  color: white;
+  transition: 0.2s ease;
+}
+@media (max-width: 1024px) {
+  .image-wrapper img {
+    width: 60vw;
+  }
 }
