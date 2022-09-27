@@ -15,7 +15,7 @@ const PokemonDetails: React.FC = () => {
     <div className="pokemon-details-container">
       <div className="pokemon-details-wrapper">
         <div className="image-wrapper">
-          <img src={data.sprites.other["official-artwork"].front_default}></img>
+          <img src={data.sprites.other["official-artwork"].front_default} alt={`${data.name}`}></img>
         </div>
         <div className="text-details">
           <span>#{data.id}</span>

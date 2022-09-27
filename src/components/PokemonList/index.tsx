@@ -17,7 +17,7 @@ const PokemonList: React.FC = () => {
   
   if (status === 'loading') return <LoadingScreen />
   if (status === 'error') return <Error />
-  
+
   return (
     <section className="main-section">
       <div className="display-type-container">
@@ -30,10 +30,10 @@ const PokemonList: React.FC = () => {
       </div>
       {
         gridView === true
-        ? <GridList results={pokemonList?.results} next={pokemonList?.next} previous={pokemonList?.previous}/>
-        : <RowsList results={pokemonList?.results} next={pokemonList?.next} previous={pokemonList?.previous}/>
+          ? <GridList results={pokemonList?.results} next={pokemonList?.next} previous={pokemonList?.previous}/>
+          : <RowsList results={pokemonList?.results} next={pokemonList?.next} previous={pokemonList?.previous}/>
       }
-      
+
       <PaginationButtons></PaginationButtons>
     </section>
   )

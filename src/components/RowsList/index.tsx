@@ -12,7 +12,7 @@ const RowsList: React.FC<PokemonResult> = ({ results }) => {
             <li className="list-item" key={pokemon.id}>
               <Link to={`/pokemon/${pokemon.id}`} state={{ pokemon }} className="row-wrapper">
                 <div className="avatar-wrapper">
-                  <img src={pokemon.imageUrl} className="avatar"></img>
+                  <img src={pokemon.imageUrl} className="avatar" alt={`${pokemon.name} avatar`}></img>
                 </div>
                 <div className="list-name-container">
                   <span className="pokemon-id">#{pokemon.id}</span>

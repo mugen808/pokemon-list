@@ -12,7 +12,7 @@ const GridList: React.FC<PokemonResult>  = ({ results }) => {
             <li className="grid-list-item" key={pokemon.id}>
               <Link to={`/pokemon/${pokemon.id}`} state={{ pokemon }} className="grid-wrapper">
                 <div className="avatar-wrapper-grid">
-                  <img src={pokemon.imageUrl} className="avatar-grid"></img>
+                  <img src={pokemon.imageUrl} className="avatar-grid" alt={`${pokemon.name} avatar`}></img>
                 </div>
                 <div className="grid-name-container">
                   <span className="grid-pokemon-id">#{pokemon.id}</span>
