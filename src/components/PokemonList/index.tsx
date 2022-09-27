@@ -7,6 +7,7 @@ import './styles.css'
 import { usePageContext } from "../../context/PageContext";
 import PaginationButtons from "../PaginationButtons";
 import LoadingScreen from "../Loading";
+import Error from "../Error";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faList, faBorderAll } from "@fortawesome/free-solid-svg-icons"
 const PokemonList: React.FC = () => {
@@ -15,7 +16,7 @@ const PokemonList: React.FC = () => {
   const { data: pokemonList, status }: UseQueryResult<PokemonResult, string> = useQuery(['pokemonList', page], () => fetchPokemons(page))
   
   if (status === 'loading') return <LoadingScreen />
-  if (status === 'error') return <div>Error!</div>
+  if (status === 'error') return <Error />
   
   return (
     <section className="main-section">

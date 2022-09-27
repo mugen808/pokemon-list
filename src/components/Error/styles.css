@@ -1,0 +1,33 @@
+.error-container {
+  margin: 10vh auto;
+  height: 60vh;
+  width: 80vw;
+  background-color: #ffffff96;
+  color:  #212121;
+  border-radius: 10px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 10vh;
+  align-items: center;
+}
+
+.error-container h3 {
+  font-weight: 100;
+}
+
+@media (min-width: 500px) {
+  .error-container h1 {
+    font-size: 2.5rem;
+  }
+  .error-container h3 {
+    font-size: 2rem;
+  }
+}
+
+@media (min-width: 1030px) {
+  .error-container {
+    width: 50vw;
+  }
+}
