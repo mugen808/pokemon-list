@@ -3,7 +3,7 @@ import './styles.css'
 import { PokemonResult } from '../../interfaces';
 import { Link } from 'react-router-dom';
 
-const PokemonGrid: React.FC<PokemonResult>  = ({ results }) => {
+const GridList: React.FC<PokemonResult>  = ({ results }) => {
   return (
     <ul className="list-container-grid">
       {
@@ -28,4 +28,4 @@ const PokemonGrid: React.FC<PokemonResult>  = ({ results }) => {
   )
 }
 
-export default PokemonGrid;
+export default GridList;

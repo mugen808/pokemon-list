@@ -13,14 +13,14 @@ const App: React.FC = () => {
   return (
     <QueryClientProvider client={queryClient}>
       <main className="main">
-      <PageContextProvider>
-        <Router>
-          <Header />
-          <Routes>
-            <Route path="/" element={<PokemonList />} />
-            <Route path="/pokemon/:id" element={<PokemonDetails />} />
-          </Routes>
-        </Router>
+        <PageContextProvider>
+          <Router>
+            <Header />
+            <Routes>
+              <Route path="/" element={<PokemonList />} />
+              <Route path="/pokemon/:id" element={<PokemonDetails />} />
+            </Routes>
+          </Router>
         </PageContextProvider>
       </main>
       <ReactQueryDevtools />

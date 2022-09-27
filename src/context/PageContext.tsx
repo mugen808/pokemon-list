@@ -1,10 +1,5 @@
 import { createContext, useContext, useState, PropsWithChildren } from "react";
 
-interface UserContext {
-  page: number,
-  setPage: React.Dispatch<React.SetStateAction<number>>
-}
-
 const PageContext = createContext<any>({})
 
 export const PageContextProvider: React.FC<PropsWithChildren> = ({ children }) => {
@@ -12,7 +7,7 @@ export const PageContextProvider: React.FC<PropsWithChildren> = ({ children }) =
   const [gridView, setGridView] = useState<boolean>(false)
   return (
     <PageContext.Provider value={{ page, setPage, gridView, setGridView }}>
-      { children }
+      {children}
     </PageContext.Provider>
   )
 }

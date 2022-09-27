@@ -1,9 +1,9 @@
 import { PokemonGenericInfo, PokemonInfo, PokemonResult } from "../interfaces";
 
 const POKEAPI_BASIC_LIST_URL = "https://pokeapi.co/api/v2/pokemon/?limit=10&offset=";
-const POKEAPI_WITHOUT_PARAMETERS = "https://pokeapi.co/api/v2";
+const POKEAPI_BASE_URL = "https://pokeapi.co/api/v2";
 
-const getPokemonsDetails = async (basicPokemonData: Array<PokemonGenericInfo>) => {
+const getPokemonsDetails = async (basicPokemonData: Array<PokemonGenericInfo>): Promise<PokemonInfo[]> => {
   let listOfPokemons: PokemonInfo[] = []
   for (let pokemon of basicPokemonData) {
     const fetchPokemonDetails = await fetch(pokemon.url);
@@ -20,7 +20,7 @@ const getPokemonsDetails = async (basicPokemonData: Array<PokemonGenericInfo>) =
 }
 
 const getIndividualPokemon = async (urlParameters: string) => {
-  const response = await fetch(`${POKEAPI_WITHOUT_PARAMETERS}${urlParameters}`)
+  const response = await fetch(`${POKEAPI_BASE_URL}${urlParameters}`)
   const data = await response.json()
   return data;
 }

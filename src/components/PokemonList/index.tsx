@@ -1,23 +1,21 @@
 import { useQuery, UseQueryResult } from "react-query";
 import { fetchPokemons } from "../../services/fetchPokemons";
 import RowsList from "../RowsList";
-import PokemonGrid from "../PokemonGrid";
+import GridList from "../GridList";
 import { PokemonResult } from "../../interfaces";
 import './styles.css'
-import { useState } from "react";
 import { usePageContext } from "../../context/PageContext";
 import PaginationButtons from "../PaginationButtons";
 import LoadingScreen from "../Loading";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faList, faBorderAll } from "@fortawesome/free-solid-svg-icons"
 const PokemonList: React.FC = () => {
-  const { page, setPage, gridView, setGridView } = usePageContext();
+  const { page, gridView, setGridView } = usePageContext();
 
-  const { data, status }: UseQueryResult<PokemonResult, string> = useQuery(['pokemonList', page], () => fetchPokemons(page))
+  const { data: pokemonList, status }: UseQueryResult<PokemonResult, string> = useQuery(['pokemonList', page], () => fetchPokemons(page))
   
   if (status === 'loading') return <LoadingScreen />
   if (status === 'error') return <div>Error!</div>
-  const pokemonList = data;
   
   return (
     <section className="main-section">
@@ -31,7 +29,7 @@ const PokemonList: React.FC = () => {
       </div>
       {
         gridView === true
-        ? <PokemonGrid results={pokemonList?.results} next={pokemonList?.next} previous={pokemonList?.previous}/>
+        ? <GridList results={pokemonList?.results} next={pokemonList?.next} previous={pokemonList?.previous}/>
         : <RowsList results={pokemonList?.results} next={pokemonList?.next} previous={pokemonList?.previous}/>
       }
       
